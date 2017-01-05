@@ -1,0 +1,3 @@
+{
+  "connectionString": "postgres://postgres:admin@localhost:5432/HISPVN-Website"
+}
