@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const ActivityDAL = require("./src/Model/ActivityDAL");
-const ad = new ActivityDAL();
+const Model = require("./src/Model/DAL");
+const ad = new Model.ActivityDAL();
 
-app.get('/api/activities', function (req, res) {
-    ad.getAllActivity().then(rows => res.json({activities:rows}));
+app.get("*", function (req, res) {
+    ad.getAllActivity().then(rows => res.json({activities: rows}));
 });
 
 
