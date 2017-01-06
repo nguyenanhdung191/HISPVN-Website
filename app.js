@@ -9,6 +9,10 @@ app.all("/api/articles", function (req, res) {
     ac.service(req, res);
 });
 
+app.all("/", function (req, res) {
+    res.send(__dirname + "/web/index.html");
+});
+
 
 const server = app.listen(8080, function () {
     var host = server.address().address;
