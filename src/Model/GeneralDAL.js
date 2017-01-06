@@ -13,11 +13,18 @@ class GeneralDAL {
         });
     }
 
-    runOneResultQuery(query){
+    runOneResultQuery(query) {
         return this.database.one(query).then((row) => {
             pgp.end();
             return row;
         });
+    }
+
+    runCRUD(query) {
+        return this.database.result(query)
+            .then(function (result) {
+                return result.rowCount;
+            })
     }
 }
 

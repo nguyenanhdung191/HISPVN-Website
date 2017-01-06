@@ -1,17 +1,16 @@
 const express = require('express');
 const app = express();
-const Model = require("./src/Model/DAL");
 const ArticleController = require("./src/Controller/ArticleController");
 const ac = new ArticleController();
+app.use(express.static(__dirname + '/web'));
 
-app.get("/api/articles", function (req, res) {
+
+app.all("/api/articles", function (req, res) {
     ac.req = req;
     ac.res = res;
     ac.service();
 });
 
-
-app.use(express.static(__dirname + '/web'));
 
 const server = app.listen(8080, function () {
     var host = server.address().address;
