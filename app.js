@@ -6,9 +6,7 @@ app.use(express.static(__dirname + '/web'));
 
 
 app.all("/api/articles", function (req, res) {
-    ac.req = req;
-    ac.res = res;
-    ac.service();
+    ac.service(req, res);
 });
 
 
