@@ -1,4 +1,4 @@
 module.exports = {
-    ActivityDAL: require("./ActivityDAL"),
+    ArticleDAL: require("./ArticleDAL"),
     GeneralDAL: require("./GeneralDAL")
-}
+};

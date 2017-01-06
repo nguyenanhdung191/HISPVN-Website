@@ -6,10 +6,17 @@ class GeneralDAL {
         this.database = pgp(db.connectionString);
     }
 
-    runQuery(query) {
+    runManyResultQuery(query) {
         return this.database.many(query).then((rows) => {
             pgp.end();
             return rows;
+        });
+    }
+
+    runOneResultQuery(query){
+        return this.database.one(query).then((row) => {
+            pgp.end();
+            return row;
         });
     }
 }
