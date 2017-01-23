@@ -10,7 +10,7 @@ app.all("/api/articles", function (req, res) {
 });
 
 app.all("/", function (req, res) {
-    res.send(__dirname + "/web/index.html");
+    res.send(__dirname + "/web/demo.html");
 });
 
 
