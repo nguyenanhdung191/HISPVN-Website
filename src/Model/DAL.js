@@ -1,4 +1,5 @@
 module.exports = {
-    ArticleDAL: require("./ArticleDAL"),
+    NewDAL: require("./NewDAL"),
+    ProjectDAL: require("./ProjectDAL"),
     GeneralDAL: require("./GeneralDAL")
 };

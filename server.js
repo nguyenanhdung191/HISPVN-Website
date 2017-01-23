@@ -1,16 +1,21 @@
 const express = require('express');
 const app = express();
-const ArticleController = require("./src/Controller/ArticleController");
-const ac = new ArticleController();
+const ProjectController = require("./src/Controller/ProjectController");
+const pc = new ProjectController();
 app.use(express.static(__dirname + '/web'));
 
 
-app.all("/api/articles", function (req, res) {
-    ac.service(req, res);
+app.all("/api/projects", function (req, res) {
+    pc.service(req, res);
 });
 
+app.all("/api/projects/:id", function (req, res) {
+    pc.service(req, res);
+});
+
+
 app.all("/", function (req, res) {
-    res.send(__dirname + "/web/demo.html");
+    res.sendFile(__dirname + "/web/demo.html");
 });
 
 
