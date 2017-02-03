@@ -14,7 +14,9 @@ class NewDAL extends GeneralDAL {
     getNewById(id) {
         return this.runOneResultQuery(`SELECT * FROM new WHERE id=${id}`)
             .then(row => row)
-            .catch(() => null);
+            .catch(() => {
+                return {ErrorMessage: `No project available with id : ${id}`};
+            });
     }
 
     deleteNew(id) {

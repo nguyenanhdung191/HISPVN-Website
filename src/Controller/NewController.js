@@ -1,19 +1,19 @@
 const Model = require("../Model/DAL");
 
-class ProjectController {
+class NewController {
     constructor() {
-        this.projectDAL = new Model.ProjectDAL();
+        this.newDAL = new Model.NewDAL();
     }
 
     service(req, res) {
         switch (req.method) {
             case "GET": {
                 if (Object.keys(req.params).length === 0 && req.params.constructor === Object) {
-                    this.projectDAL.getAllProject()
+                    this.newDAL.getAllNew()
                         .then(json => res.json(json));
                 }
                 else {
-                    this.projectDAL.getProjectById(req.params.id)
+                    this.newDAL.getNewById(req.params.id)
                         .then(json => res.json(json));
                 }
                 break;
@@ -21,7 +21,7 @@ class ProjectController {
 
             case "DELETE": {
                 let id = req.params.id;
-                this.projectDAL.deleteProject(id).then(count => res.send(`Success, ${count} project(s) deleted`));
+                this.newDAL.deleteNew(id).then(count => res.send(`Success, ${count} project(s) deleted`));
                 break;
             }
         }
@@ -29,4 +29,4 @@ class ProjectController {
 
 }
 
-module.exports = ProjectController;
+module.exports = NewController;
